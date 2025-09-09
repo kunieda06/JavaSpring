@@ -25,8 +25,8 @@ public class HelloService {
 
 
     public Map<String, String> hello3(String number1, String number2) {
-        // System.out.println(number1);
-        // System.out.println(number2);
+        System.out.println(number1);
+        System.out.println(number2);
         if(number1.isEmpty() && number2.isEmpty()){
             return Map.of("message","両方入力されていません。");
         }
