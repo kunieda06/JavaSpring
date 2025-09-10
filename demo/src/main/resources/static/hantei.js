@@ -2,6 +2,7 @@ let rowCount = 0;
 
 const addBtn = document.getElementById("addbtn");
 const delBtn = document.getElementById("delbtn");
+const submitBtn = document.getElementById("submitbtn");
 const table = document.getElementById("tablePlan");
 const tableBody = document.getElementById("tableBody");
 
@@ -60,4 +61,34 @@ delBtn.addEventListener("click",()=>{
         table.style.display = "none";
     }
     updateRowCountDisplay();
+});
+
+//送信ボタン
+submitbtn.addEventListener("click", ()=>{
+    const rows = tableBody.querySelectorAll("tr");
+    const data = [];
+
+    //2列目の内容を取得
+    rows.forEach(row => {
+        const input = row.querySelector("td:nth-child(2) > input").value.trim();
+        data.push(input);
+    });
+    
+    fetch("/api/path", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ inputs: data }),
+    })
+    .then(response => response.json())
+    .then(result => {
+    rows.forEach((row, index) => {
+      const judge = row.querySelector("td:nth-child(3) > input");
+      judge.value = result.judgements[index];
+    });
+    })
+    .catch(error => {
+    console.error("Error:", error);
+  });
 });

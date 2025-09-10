@@ -1,0 +1,30 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class HanteiService {
+
+    public List<String> judgeInputs(List<String> inputs) {
+        List<String> result = new ArrayList<>();
+
+    for (String input : inputs) {
+        if (input == null || input.isEmpty()) {
+            result.add("エラー：空白です");
+            continue;
+        }
+        if (input.matches("\\d+")) {
+            result.add("数字");
+        } else if (input.matches(".*[a-zA-Z]+.*")) {
+            result.add("文字");
+        } else {
+            result.add("エラー：内容を確認してください");
+        }
+    }
+
+        return result;
+    }
+};
