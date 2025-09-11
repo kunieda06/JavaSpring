@@ -33,6 +33,13 @@ public class HelloService {
         if(number1.isEmpty() ^ number2.isEmpty()){
             return Map.of("message","片方入力されていません。");
         }
+
+        /*末長  XORよりはORで判定することが多いですね。エラーメッセージもこんな感じ。*/
+        /*補足:片方入力されていません。と末長がエラーメッセージを指定していたので、上記の判定は正しいです。*/
+        // if(number1.isEmpty() || number2.isEmpty()){
+        //     return Map.of("message","入力されていない項目があります。");
+        // }
+
         String numberRegex = "\\d+";
         if(!number1.matches(numberRegex) || !number2.matches(numberRegex)){
             return Map.of("message","文字を含んでいます。");
