@@ -18,10 +18,8 @@ public class HanteiService {
         }
         if (input.matches("\\d+")) {
             result.add("数字");
-        } else if (input.matches(".*[a-zA-Z]+.*")) {
-            result.add("文字");
         } else {
-            result.add("エラー：内容を確認してください");
+            result.add("文字");
         }
     }
 

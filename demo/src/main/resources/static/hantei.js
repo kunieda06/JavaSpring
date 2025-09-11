@@ -28,14 +28,20 @@ addBtn.addEventListener("click",()=>{
     const inputCell = document.createElement("td");
     const input = document.createElement("input");
     input.type = "text";
-    input.placeholder = "予定の内容"
+    input.placeholder = "予定の内容";
+    input.style.width = "600px";
+    input.style.height = "50px";
+    inputCell.style.width = "600px";
     inputCell.appendChild(input);
     //判断内容
     const judgeCell = document.createElement("td");
     const judge = document.createElement("input");
     judge.type = "text";
     judge.readOnly = true;
-    judge.placeholder = "判断内容"
+    judge.placeholder = "判断内容";
+    judge.style.width = "300px";
+    judge.style.height = "50px";
+    judgeCell.style.width = "600px";
     judgeCell.appendChild(judge);
 
     newRow.appendChild(checkCell);

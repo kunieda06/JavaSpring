@@ -2,22 +2,28 @@
     <head>
         <meta charset="utf-8">
         <style>
-
+            .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            }
         </style>
     </head>
     <body>
-        <button id = "addbtn">追加</button>
-        <button id = "delbtn">削除</button>
-        <button id = "submitbtn">送信（判定）</button>
-
-        <span id="count"></span>
-
+        <div class="header">
+            <div>
+                <button id = "addbtn">追加</button>
+                <button id = "delbtn">削除</button>
+                <button id = "submitbtn">送信（判定）</button>
+            </div>
+            <span id="count"></span>
+        </div>
 
         <table id = "tablePlan" style="display:none;">
             <tbody id = "tableBody">
-
             </tbody>
-        </table>            
+        </table>          
         <script src="hantei.js"></script>
 
 
