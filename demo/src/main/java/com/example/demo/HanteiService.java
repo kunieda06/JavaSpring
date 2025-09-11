@@ -21,6 +21,17 @@ public class HanteiService {
         } else {
             result.add("文字");
         }
+
+        /*末長  continue を使わずに判定する方法*/
+        // if (input == null || input.isEmpty()) {
+        //     result.add("エラー：空白です");
+        // }else{
+        //     if (input.matches("\\d+")) {
+        //         result.add("数字");
+        //     } else {
+        //         result.add("文字");
+        //     }
+        // }
     }
 
         return result;
