@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザー登録</title>
+</head>
+<body>
+    <h1>ユーザー登録フォーム</h1>
+    <input type="text" id="nameInput" placeholder="名前を入力">
+    <button onclick="submitUser()">登録</button>
+
+    <p id="response"></p>
+
+    <script>
+        function submitUser() {
+            const name = document.getElementById("nameInput").value;
+
+            fetch("/users/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name: name })
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("response").innerText = data;
+            })
+            .catch(error => {
+                document.getElementById("response").innerText = "エラーが発生しました";
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</body>
+</html>
